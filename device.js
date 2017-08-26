@@ -35,16 +35,18 @@ function weatherInfo(){
 
 	var	 deviceId="1234ABCD",
 		 temperature = getRandomValues(60,80),
-		 humidity = getRandomValues(30,60);
+		 humidity = Math.round(getRandomValues(30,60));
 
 
 	var weather = {
 		deviceId: deviceId,
 		temperature: temperature,
-		humidity: humidity
+		humidity: humidity,
+		time:Date.now()
 	}
 
-	return (weather);
+	//returning data in string format
+	return (JSON.stringify(weather));
 }
 
 //initiating websockets
@@ -53,10 +55,10 @@ const WebSocket = require('ws');
 //starting a websockets server at defined port
 const wss = new WebSocket.Server({ port: config.port });
 
-//getting the weather data as an object
-weatherData=weatherInfo();
 
-//opening the ws connection and sending the data in string format
+//opening the ws connection and sending the data
 wss.on('connection', function connection(ws) {
-  ws.send(JSON.stringify(weatherData));
+
+  ws.send(weatherInfo());
+  setInterval(function(){ws.send(weatherInfo())},config.interval)
 });
