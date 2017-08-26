@@ -4,7 +4,7 @@
   "description": "emulating a IoT device and sending data over REST API",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node device.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,6 +15,6 @@
   "author": "Kaustubh Ghadge",
   "license": "ISC",
   "dependencies": {
-    "restify": "^5.2.0"
+    "ws": "^3.1.0"
   }
 }
