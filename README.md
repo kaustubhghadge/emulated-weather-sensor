@@ -13,7 +13,8 @@ Clone the repository
 
 <h3>Notes</h3>
 <ul>
-  <li>Currently serving on port 9090. Changes can be made in <code>env.js</code> file.</li>
+  <li> Changes can be made in <code>env.js</code> file.</li> 
+  <li>Currently serving on port - 9090,  at interval - 6 seconds.</li>
   <li>Currently serving temperature between - 60-80F and 
       humidity between - 30-60% </li>
 </ul>
